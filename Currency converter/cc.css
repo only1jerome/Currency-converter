@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    font-family: 'Poppins', sans-serif;    
+    background-color: rgb(143, 143, 143);
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+}
+.container{ 
+    width: 280px;
+    /* height: 500px; */
+    background-color: rgb(245, 245, 245) ;
+    /* border-radius: 20px; */
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    user-select: none;
+}
+.header{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+}
+.header > p{
+    color: rgb(3, 3, 75);
+    padding-top: 10px;
+}
+
+.date{
+    text-align: right;
+    font-size: 10px;
+    padding-right: 10px;
+    color: rgb(3, 3, 75)
+}
+ul.currencies{
+    height: 400px;
+    overflow-y: auto;
+}
+ul.currencies li{
+    list-style: none;
+    background-color: white;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 15px;
+    position: relative;
+}
+ul.currencies li:last-child{
+    margin-bottom: 0px;
+}
+
+ul.currencies li.base-currency{
+    background-color: rgba(0, 110, 255, 0.7);
+    color: white;
+}
+
+.flag{
+    width: 40px;
+    height: 25px;
+    border: 1px solid white;
+    vertical-align: top;
+}
+.info{
+    display: inline-block;
+}
+.info .input > span{
+    font-size: 15px;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+}
+ul.currencies li.base-currency .info .input input{
+    font-size: 10px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 3px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    width: 50%;    
+}
+.info .input input{
+    font-size: 10px;
+    background-color: transparent;
+    border: 1px solid rgb(0, 110, 255);
+    border-radius: 5px;
+    padding: 3px;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(3, 3, 75);
+    width: 50%;
+}
+.info .currency-name{
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 12px;
+    margin-left: 38px;
+}
+.info .base-currency-rate{
+    margin-top: 5px;
+    margin-left: 38px;
+}
+ul.currencies li .close{
+    position: absolute;
+    top: 0;
+    right: 0;   
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+ul.currencies::-webkit-scrollbar{
+    width: 5px;
+}
+
+ul.add-currency-list{
+    position: absolute;
+    bottom: 50px;
+    left: 105%;
+    background-color: white;
+    width: 100%;
+    color: rgb(3, 3, 75);
+    font-size: 10px;
+    height: 390px;
+    border-radius: 20px;
+    transition: all 0.25s;
+    overflow-y: auto;
+}
+ul.add-currency-list::-webkit-scrollbar{
+    width: 5px;
+}
+ul.add-currency-list li{
+    list-style: none;
+    padding: 7px;
+    border-bottom: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 12px;
+
+}
+ul.add-currency-list .flag{
+    width: 15px;
+    height: 10px;
+    vertical-align: middle;
+}
+ul.add-currency-list li span{
+    margin-left: 10px;
+}
+
+ul.add-currency-list li.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.symb{
+    font-weight: bold;    
+}
+.add-btn{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 50px;
+}
+.add-currency-btn{
+    background-color: rgb(0, 110, 255);
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 12px;
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif; 
+    cursor: pointer;
+    position: relative;
+}
+.add-currency-btn i{
+    position: absolute;
+    top: 13px;
+    left: 30%;
+    opacity: 0;
+    transition: all 0.25s;
+}
+
+.add-currency-btn.open{
+    background-color: white;
+    color: rgb(0, 110, 255);
+}
+.add-btn.open + ul.add-currency-list{
+    left: 0;    
+}
+
+.add-currency-btn.open i{
+    opacity: 1;
+    left: 30px;
+}
+
+.add-btn.open + ul.add-currency-list li:hover{
+    background-color: #ddd;
+}
+
+@media (max-width: 600px) {
+    html {font-size: 14px;}
+    .container{width: 100%; margin: 0 auto;}
+    ul.currencies { height: calc(100vh - 75px - 34px);}
+    .header p {font-size: 20px;}
+    .flag {width: 30px; height: 20px;}
+    .info .input span {font-size: 1.25rem; width: 3.5rem;}
+    .info .input input{font-size: 1rem; width: 50%;}
+    ul.currencies li.base-currency .info .input input{font-size: 1rem; width: 50%;}
+    .info .currency-name{margin-left: 3.5rem;}
+    .info .base-currency-rate{margin-left: 3.5rem;}
+    ul.add-currency-list{bottom: 48px; height: calc(100vh - 75px -35px);}
+    .add-currency-btn i {left: 25%; top: 0.65rem;}
+}
